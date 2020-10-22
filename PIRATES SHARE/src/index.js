@@ -14,13 +14,14 @@ function find_JackShare(goldCoin, X, Y) {
 
 //Write a function to retrun the  Barbossa share.
 function find_BarbossaShare(goldCoin, X, Y) {
-    var barboossaShare = goldCoin - (X / 100) * goldCoin
-    return barboossaShare;
+    let remainingTreassure = goldCoin - find_JackShare(goldCoin,X);
+    let barbossaShare = (Y/100)*remainingTreassure;
+    return barbossaShare;
 }
 
 
 //Write a function to retrun the other pirates share.
 function find_OtherShare(goldCoin, X, Y) {
-    var otherShare = goldCoin - ((X / 100) * goldCoin) + ((Y / 100) * goldCoin)
+    var otherShare = goldCoin - (find_JackShare(goldCoin,X) + find_BarbossaShare(goldCoin, Y))
     return otherShare;
 }
